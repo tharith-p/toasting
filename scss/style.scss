@@ -80,6 +80,7 @@
                 position        : absolute;
                 background      : gray;
                 &.rainbow {
+                    opacity: 0.6;
                     background      : rgb(0,32,36);
                     background      : linear-gradient(45deg, rgba(0,32,36,1) 0%, rgba(167,44,134,1) 48%, rgba(0,212,255,1) 100%);    
                 }
