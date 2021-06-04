@@ -105,10 +105,7 @@
                 progressBar.style.animationFillMode = 'forwards';
 
                 if (typeof options.progressBarType !== 'undefined' && options.progressBarType === 'rainbow') {
-                    console.log(true);
                     progressBar.classList += ' rainbow';   
-                } else {
-                    console.log(false);
                 }
 
                 wrapper.appendChild(progressBar);
@@ -190,6 +187,5 @@ btn.addEventListener('click', () => {
     autoHide        = document.querySelector('#autoHide').checked;
     hideProgressBar = document.querySelector('#hideProgressBar').checked;
     duration        = parseInt(document.querySelector('#duration').value);
-    // console.info({title, text, type, autoHide, hideProgressBar, duration});
     show(title, text);
 });

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,53 +9,65 @@
   <link href="/css/tailwindcss.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
   <div class="flex py-10 flex-col max-w-lg mx-auto space-y-5">
-    <input type="text" placeholder="TITLE" id="title" class="border px-4 py-1 rounded">
-    <input type="text" placeholder="TEXT" id="text" class="border px-4 py-1 rounded">
-    <div class="flex space-x-5">
-      <div>
-        <input type="radio" id="tDefault" name="type" checked value="default">  
-        <label class="pl-2" for="tDefault">Default</label>
-      </div>
-      <div>
-        <input type="radio" id="success" name="type" value="success">  
-        <label class="pl-2" for="success">Success</label>
-      </div>
-      <div>
-        <input type="radio" id="warning" name="type" value="warning">  
-        <label class="pl-2" for="warning">Warning</label>
-      </div>
-      <div>
-        <input type="radio" id="error" name="type" value="error">   
-        <label class="pl-2" for="error">Error</label>
-      </div>
-      <div>
-        <input type="radio" id="info" name="type" value="info">  
-        <label class="pl-2" for="info">Info</label>
+    <div>
+      <label class="block text-gray-500" for="title">Title <span class="text-red-500">*</span></label>
+      <input type="text" placeholder="TITLE" id="title" class="border w-full px-4 py-1 rounded">
+    </div>
+    <div>
+      <label for="text" class="block text-gray-500">Description</label>
+      <input type="text" placeholder="TEXT" id="text" class="border px-4 py-1 rounded w-full">
+    </div>
+    <div>
+      <span class="block text-gray-500">Type</span>
+      <div class="flex space-x-5">
+        <div>
+          <input type="radio" id="tDefault" name="type" checked value="default">
+          <label class="pl-2" for="tDefault">Default</label>
+        </div>
+        <div>
+          <input type="radio" id="success" name="type" value="success">
+          <label class="pl-2" for="success">Success</label>
+        </div>
+        <div>
+          <input type="radio" id="warning" name="type" value="warning">
+          <label class="pl-2" for="warning">Warning</label>
+        </div>
+        <div>
+          <input type="radio" id="error" name="type" value="error">
+          <label class="pl-2" for="error">Error</label>
+        </div>
+        <div>
+          <input type="radio" id="info" name="type" value="info">
+          <label class="pl-2" for="info">Info</label>
+        </div>
       </div>
     </div>
-    <div class="flex space-x-5">
+    <div >
+      <span class="text-gray-500">Auto Hide</span>
       <div>
-        <input type="checkbox" id="autoHide" name="autoHide" checked>  
+        <input type="checkbox" id="autoHide" name="autoHide" checked>
         <label class="pl-2" for="autoHide">auto hide</label> <span>(true by default)</span>
       </div>
     </div>
-    <div class="flex space-x-5">
+    <div>
+      <span class="text-gray-500">Hide progress bar</span>
       <div>
-        <input type="checkbox" id="hideProgressBar" name="hideProgressBar">  
+        <input type="checkbox" id="hideProgressBar" name="hideProgressBar">
         <label class="pl-2" for="hideProgressBar">hide progress bar</label> <span>(false by defaule)</span>
       </div>
     </div>
     <div>
-      <div>Progress bar type</div>
+      <span class="text-gray-500">Progress bar type</span>
       <div class="flex space-x-5">
         <div>
-          <input type="radio" id="pDefault" name="pType" checked value="default">  
+          <input type="radio" id="pDefault" name="pType" checked value="default">
           <label class="pl-2" for="pDefault">Default</label>
         </div>
         <div>
-          <input type="radio" id="pRainbow" name="pType" value="rainbow">  
+          <input type="radio" id="pRainbow" name="pType" value="rainbow">
           <label class="pl-2" for="pRainbow">Rainbow</label> <span class="text-gray-500">
             (Avaliable on toast info only)
           </span>
@@ -62,13 +75,15 @@
       </div>
     </div>
     <div class="w-full">
-      <label class="block text-gray-500" for="duration">Duration in milisecond</label> <span>(4000 milisecond by default)</span>
+      <label class="block text-gray-500" for="duration">Duration in milisecond (4000 milisecond by
+        default)</label> 
       <input type="number" placeholder="DURATION" id="duration" class="block w-full border px-4 py-1 rounded">
     </div>
-    <button class="border px-5 py-1 bg-red-200 rounded" id="btn">
+    <button class="border px-5 py-1 text-white rounded bg-gradient-to-r from-green-400 to-blue-500 transition hover:from-pink-500 hover:to-yellow-500" id="btn">
       TOASTING TIME
     </button>
   </div>
   <script src="/js/index.js"></script>
 </body>
+
 </html>
