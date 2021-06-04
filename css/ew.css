@@ -6,10 +6,10 @@
     top         : 0;
     right       : 0;
     width       : auto;
-    
   }
   
   .cooltoast-toast {
+      align-self: flex-end;
     display                     : inline-block;
     overflow                    : auto;
     animation-duration          :  .3s;
@@ -21,10 +21,12 @@
     margin          : 5px 20px;
     padding         : 10px 15px;
     min-width       : 300px;
+    max-width       : 400px;
     position        : relative;
     border-radius   : 8px;
     cursor          : pointer;
-    overflow        : hidden;
+    overflow-y        : hidden;
+    
     box-shadow      : 0 1px 6px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.19);
   }
   .progress-bar {
