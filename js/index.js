@@ -81,7 +81,7 @@
                 wrapper.appendChild(img);
             }
 
-            if (typeof options.hideProgressBar === 'boolean' && options.hideProgressBar) {
+            if (typeof options.hideProgressBar === 'boolean' && !options.hideProgressBar) {
 
                 var cssAnimation    = document.createElement('style');
                 cssAnimation.id     = `style-${toast.id}`
@@ -120,7 +120,11 @@
                 toast.addEventListener('animationend', removeToast, false);
 
             };
-            // setTimeout(toast.hide, timeout + 200);
+            if(typeof options.autoHide === 'undefined') {
+                setTimeout(toast.hide, timeout + 200);
+            } else if (typeof options.autoHide === 'boolean' && options.autoHide) {
+                setTimeout(toast.hide, timeout + 200);
+            }
             
             if (options.type) {
                 toast.className += ' cooltoast-' + options.type;
@@ -160,6 +164,7 @@ function show() {
         text            : text,
         hideProgressBar : false,
         timeout         : 4000,
+        autoHide        : false,
     });
 };
 
