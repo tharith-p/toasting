@@ -1,0 +1,153 @@
+#toasting-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: auto;
+}
+#toasting-container .toasting-toast {
+  align-self: flex-end;
+  display: inline-block;
+  overflow: auto;
+  animation-duration: 0.3s;
+  animation-name: toasting;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+#toasting-container .toasting-toast a, #toasting-container .toasting-toast a:hover {
+  color: #549EDB !important;
+  text-decoration: none !important;
+}
+#toasting-container .toasting-toast > div {
+  background-color: white;
+  margin: 5px 20px;
+  padding: 10px 15px;
+  min-width: 300px;
+  max-width: 400px;
+  position: relative;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow-y: hidden;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.19);
+}
+#toasting-container .toasting-toast > div.toasting-success {
+  background-color: #51C625;
+}
+#toasting-container .toasting-toast > div.toasting-success .toasting-title,
+#toasting-container .toasting-toast > div.toasting-success .toasting-text {
+  color: white;
+}
+#toasting-container .toasting-toast > div.toasting-success .progress-bar {
+  background-color: white;
+}
+#toasting-container .toasting-toast > div.toasting-warning {
+  background-color: #DB9215;
+}
+#toasting-container .toasting-toast > div.toasting-warning .toasting-title,
+#toasting-container .toasting-toast > div.toasting-warning .toasting-text {
+  color: white;
+}
+#toasting-container .toasting-toast > div.toasting-warning .progress-bar {
+  background-color: white;
+}
+#toasting-container .toasting-toast > div.toasting-error {
+  background-color: #DB2B1D;
+}
+#toasting-container .toasting-toast > div.toasting-error .toasting-title,
+#toasting-container .toasting-toast > div.toasting-error .toasting-text {
+  color: white;
+}
+#toasting-container .toasting-toast > div.toasting-error .progress-bar {
+  background-color: white;
+}
+#toasting-container .toasting-toast > div.toasting-info {
+  background-color: #27ABDB;
+}
+#toasting-container .toasting-toast > div.toasting-info .toasting-title,
+#toasting-container .toasting-toast > div.toasting-info .toasting-text {
+  color: white;
+}
+#toasting-container .toasting-toast > div.toasting-info .progress-bar {
+  background-color: white;
+}
+#toasting-container .toasting-toast > div .progress-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: gray;
+  opacity: 0.5;
+}
+#toasting-container .toasting-toast > div .progress-bar.rainbow {
+  background: #002024;
+  background: linear-gradient(45deg, #002024 0%, #a72c86 48%, #00d4ff 100%);
+}
+#toasting-container .toasting-toast > div .toasting-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: #616161;
+}
+#toasting-container .toasting-toast > div .toasting-text {
+  font-size: 14px;
+  line-height: 20px;
+  color: #616161;
+  font-size: 14px;
+  font-weight: 400;
+}
+#toasting-container .toasting-toast > div .toasting-icon {
+  position: absolute;
+  top: 5px;
+  left: -40px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #FFF;
+}
+#toasting-container .toasting-fadeOut {
+  overflow: hidden;
+  animation-name: toastingFadeOut;
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-fill-mode: forwards;
+}
+
+@keyframes toasting {
+  0% {
+    transform: translate3d(400px, 0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    transform: translate3d(-15px, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes toastingFadeOut {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  15% {
+    transform: translate3d(-15px, 0, 0);
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate3d(400px, 0, 0);
+    opacity: 0;
+    max-height: 250px;
+  }
+  100% {
+    transform: translate3d(400px, 0, 0);
+    opacity: 0;
+    max-height: 0;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
