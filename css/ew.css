@@ -1,0 +1,130 @@
+#toasting-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position    : fixed;
+    top         : 0;
+    right       : 0;
+    width       : auto;
+    
+  }
+  
+  .cooltoast-toast {
+    display                     : inline-block;
+    overflow                    : auto;
+    animation-duration          :  .3s;
+    animation-name              : cooltoast;
+    animation-timing-function   : cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+  .cooltoast-toast > div {
+    background-color: white;
+    margin          : 5px 20px;
+    padding         : 10px 15px;
+    min-width       : 300px;
+    position        : relative;
+    border-radius   : 8px;
+    cursor          : pointer;
+    overflow        : hidden;
+    box-shadow      : 0 1px 6px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.19);
+  }
+  .progress-bar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 3px;
+      background-color: black;
+      opacity: .5;
+  }
+  
+  .cooltoast-fadeOut {
+    overflow                    : hidden;
+    animation-name              : cooltoastFadeOut;
+    animation-duration          : .6s;
+    animation-timing-function   : cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-fill-mode         : forwards;
+  }
+  
+  .cooltoast-title {
+    font-weight : 700;
+    font-size   : 15px;
+    color       : #616161;
+  }
+  
+  .cooltoast-text {
+    font-size   : 14px;
+    line-height : 20px;
+    color       : #616161;
+    font-size   : 14px;
+    font-weight : 400;
+  }
+  
+  .cooltoast-icon {
+    position: absolute;
+    top: 5px;
+    left: -40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background: #FFF;
+  }
+  
+  .cooltoast-toast a, .cooltoast-toast a:hover {
+    color: #549EDB !important;
+    text-decoration: none !important;
+  }
+  
+  /** toast types */
+  .cooltoast-success {
+    border-bottom: 2px solid #51C625;
+  }
+  
+  .cooltoast-warning {
+    border-bottom: 2px solid #DB9215;
+  }
+  
+  .cooltoast-error {
+    border-bottom: 2px solid #DB2B1D;
+  }
+  
+  .cooltoast-info {
+    border-bottom: 2px solid #27ABDB;
+  }
+  
+  @keyframes cooltoast {
+    0% {
+        transform: translate3d(400px, 0, 0);;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    80% {
+        transform: translate3d(-15px, 0, 0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes cooltoastFadeOut {
+    0% {
+        transform: translate3d(0,0,0);
+    }
+    15% {
+        transform: translate3d(-15px, 0, 0);
+    }
+    40% {
+        opacity: 1;
+    }
+    50% {
+        transform   : translate3d(400px, 0, 0);
+        opacity     : 0;
+        max-height  : 250px;
+    }
+    100% {
+        transform   : translate3d(400px, 0, 0);
+        opacity     : 0;
+        max-height  : 0;
+    }
+  }
