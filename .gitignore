@@ -1,5 +1,5 @@
 src/css
 src/css/
-src/css/*
+src/css/style.css
 
 package-lock.json
