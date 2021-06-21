@@ -1,1 +1,3 @@
 # toasting
+
+npm run build
