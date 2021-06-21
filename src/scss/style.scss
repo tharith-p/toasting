@@ -1,4 +1,32 @@
-#toasting-container {
+#tg-container {
+    * {
+        margin  : 0;
+        padding : 0;
+    }
+    *,
+    ::before,
+    ::after {
+    box-sizing  : border-box;
+    }
+
+    -moz-tab-size   : 4;
+    -o-tab-size     : 4;
+    tab-size        : 4;
+
+    line-height             : 1.15;
+    -webkit-text-size-adjust: 100%;
+    font-family             :
+        system-ui,
+        -apple-system, /* Firefox supports this but not yet `system-ui` */
+        'Segoe UI',
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif,
+        'Apple Color Emoji',
+        'Segoe UI Emoji';
+
+
     top             : 0;
     right           : 0;
     display         : flex;
@@ -6,7 +34,7 @@
     justify-content : flex-end;
     position        : fixed;
     width           : auto;
-    .toasting-toast {
+    .tg-toast {
         align-self                  : flex-end;
         display                     : inline-block;
         overflow                    : auto;
@@ -30,40 +58,40 @@
             overflow-y      : hidden;
 
             // type
-            &.toasting-success {
+            &.tg-success {
                 background-color    : #51C625;
-                .toasting-title,
-                .toasting-text {
+                .tg-title,
+                .tg-text {
                     color   : white;
                 }
                 .progress-bar {
                     background-color: white;
                 }
             }
-            &.toasting-warning {
+            &.tg-warning {
                 background-color:  #DB9215;
-                .toasting-title,
-                .toasting-text {
+                .tg-title,
+                .tg-text {
                     color: white;
                 }
                 .progress-bar {
                     background-color: white;
                 }
             }
-            &.toasting-error {
+            &.tg-error {
                 background-color:  #DB2B1D;
-                .toasting-title,
-                .toasting-text {
+                .tg-title,
+                .tg-text {
                     color: white;
                 }
                 .progress-bar {
                     background-color: white;
                 }
             }
-            &.toasting-info {
+            &.tg-info {
                 background-color:  #27ABDB;
-                .toasting-title,
-                .toasting-text {
+                .tg-title,
+                .tg-text {
                     color: white;
                 }
                 .progress-bar {
@@ -86,19 +114,19 @@
                 }
             }
 
-            .toasting-title {
+            .tg-title {
                 font-weight : 700;
                 font-size   : 15px;
                 color       : #616161;
             }
-            .toasting-text {
+            .tg-text {
                 font-size   : 14px;
                 line-height : 20px;
                 font-size   : 14px;
                 font-weight : 400;
                 color       : #616161;
             }
-            .toasting-icon {
+            .tg-icon {
                 top             : 5px;
                 left            : -40px;
                 width           : 50px;
@@ -110,7 +138,7 @@
         }
     }
     
-    .toasting-fadeOut {
+    .tg-fadeOut {
         animation-name              : toastingFadeOut;
         animation-duration          : .6s;
         animation-timing-function   : cubic-bezier(0.215, 0.610, 0.355, 1.000);

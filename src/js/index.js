@@ -1,4 +1,5 @@
 
+/*! toasting v0.1 | MIT License | https://github.com/tharith-p/toasting */
 (function (root, factory) {
     try {
         // commonjs
@@ -36,7 +37,7 @@
     function init() {
         // toasting container
         var container = document.createElement('div');
-        container.id = 'toasting-container';
+        container.id = 'tg-container';
         document.body.appendChild(container);
 
         // @Override
@@ -51,7 +52,7 @@
             var toasting = document.createElement('div');
             toasting.id = ++autoincrement;
             toasting.id = 'toast-' + toasting.id;
-            toasting.className = 'toasting-toast';
+            toasting.className = 'tg-toast';
 
             var wrapper = document.createElement('div');
 
@@ -59,7 +60,7 @@
             try {
                 var 
                     h4              = document.createElement('h4');
-                    h4.className    = 'toasting-title';
+                    h4.className    = 'tg-title';
                     h4.innerHTML    = !options.title ? 'Default Title' : options.title;
 
             } catch (error) {
@@ -71,7 +72,7 @@
             // text
             if (options.text) {
                 var p = document.createElement('p');
-                p.className = 'toasting-text';
+                p.className = 'tg-text';
                 p.innerHTML = options.text;
                 wrapper.appendChild(p);
             }
@@ -80,11 +81,14 @@
             if (options.icon) {
                 var img = document.createElement('img');
                 img.src = options.icon;
-                img.className = 'toasting-icon';
+                img.className = 'tg-icon';
                 wrapper.appendChild(img);
             }
 
-            if (typeof options.hideProgressBar === 'boolean' && !options.hideProgressBar) {
+            if (
+                (typeof options.hideProgressBar === 'boolean' && !options.hideProgressBar) ||
+                !(options.hideProgressBar)
+                ) {
 
                 var cssAnimation = document.createElement('style');
                 cssAnimation.id = `style-${toasting.id}`
@@ -123,7 +127,7 @@
 
             // toasting api
             toasting.hide = function () {
-                toasting.className += ' toasting-fadeOut';
+                toasting.className += ' tg-fadeOut';
                 toasting.addEventListener('animationend', removeToast, false);
 
             };
@@ -134,14 +138,16 @@
             }
 
             if (options.type) {
-                wrapper.className += ' toasting-' + options.type;
+                wrapper.className += ' tg-' + options.type;
+            } else {
+                wrapper.className += ' tg-' + 'default';
             }
 
             toasting.addEventListener('click', toasting.hide);
 
 
             function removeToast() {
-                document.getElementById('toasting-container').removeChild(toasting);
+                document.getElementById('tg-container').removeChild(toasting);
                 let style = document.querySelector(`#style-${toasting.id}`);
                 if (style) {
                     style.remove();
@@ -150,14 +156,11 @@
 
             toasting.appendChild(wrapper);
 
-            document.getElementById('toasting-container').appendChild(toasting);
+            document.getElementById('tg-container').appendChild(toasting);
             return toasting;
-
         }
     }
-
     return toasting;
-
 });
 
 let 
@@ -168,28 +171,14 @@ let
     autoHide        = false,
     hideProgressBar = false,
     duration        = 0;
-    object          = {
-        title   : '',
-        ha      : ''
-    }
+    object          = {}
 
 let toast;
 function show() {
-    toast = toasting.create(
-    {
-        title           : title,
-        text            : text,
-        type            : type,
-        hideProgressBar : hideProgressBar,
-        progressBarType : progressBarType,
-        timeout         : isNaN(duration) || duration < 0 ? 0 : duration,
-        autoHide        : autoHide,
-    });
+    toast = toasting.create(object);
 };
 
-let btn = document.querySelector('#btn');
-
-btn.addEventListener('click', () => {
+let inputEvt = () => {
     title           = document.querySelector('#title').value;
     text            = document.querySelector('#text').value;
     type            = document.querySelector('input[name="type"]:checked').value;
@@ -197,5 +186,46 @@ btn.addEventListener('click', () => {
     autoHide        = document.querySelector('#autoHide').checked;
     hideProgressBar = document.querySelector('#hideProgressBar').checked;
     duration        = parseInt(document.querySelector('#duration').value);
+
+    object = {}
+
+    if (title !== '') {
+        object['title'] = title;
+    }
+
+    if (text !== '') {
+        object['text'] = text;
+    }
+
+    if (type !== 'default') {
+        object['type'] = type;
+    }
+
+    if (!autoHide) {
+        object['autoHide'] = false
+    }
+
+    if (hideProgressBar) {
+        object['hideProgressBar'] = hideProgressBar;
+    }
+
+    if (progressBarType !== 'default') {
+        object['progressBarType'] = progressBarType;
+    }
+
+    if (!isNaN(duration) && duration > 0) {
+        object['timeout'] = duration;
+    }
+    document.querySelector('#ew').innerHTML = JSON.stringify(object, null, ' ');
+}
+
+document.querySelector('#btn').addEventListener('click', () => {
     show(title, text);
 });
+
+document.querySelectorAll('input').forEach(x => {
+    x.addEventListener('input', e => {
+        inputEvt()
+    })
+})
+inputEvt()
