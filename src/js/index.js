@@ -113,8 +113,9 @@
                 progressBar.style.animationTimingFunction = 'linear';
                 progressBar.style.animationFillMode = 'forwards';
 
-                if (typeof options.progressBarType !== 'undefined' && options.progressBarType === 'rainbow') {
-                    progressBar.classList += ' rainbow';   
+
+                if (typeof options.progressBarType !== 'undefined') {
+                    progressBar.classList += ' ' + options.progressBarType;                    
                 }
 
                 wrapper.appendChild(progressBar);

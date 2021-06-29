@@ -1,6 +1,12 @@
 /*!
  * toasting v0.1 | MIT License | https://github.com/tharith-p/toasting 
  */
+
+$CErr   :#DB2B1D;
+$CInfo  : #27ABDB;
+$CSucc  : #51C625;
+$CWarn  : #DB9215;
+
  
 #tg-container {
     * {
@@ -38,6 +44,7 @@
     justify-content : flex-end;
     position        : fixed;
     width           : auto;
+    z-index         : 1202;
     .tg-toast {
         align-self                  : flex-end;
         display                     : inline-block;
@@ -68,18 +75,12 @@
                 .tg-text {
                     color   : white;
                 }
-                .progress-bar {
-                    background-color: white;
-                }
             }
             &.tg-warning {
                 background-color:  #DB9215;
                 .tg-title,
                 .tg-text {
                     color: white;
-                }
-                .progress-bar {
-                    background-color: white;
                 }
             }
             &.tg-error {
@@ -88,18 +89,12 @@
                 .tg-text {
                     color: white;
                 }
-                .progress-bar {
-                    background-color: white;
-                }
             }
             &.tg-info {
                 background-color:  #27ABDB;
                 .tg-title,
                 .tg-text {
                     color: white;
-                }
-                .progress-bar {
-                    background-color: white;
                 }
             }
 
@@ -114,7 +109,23 @@
                 &.rainbow {
                     opacity: 0.6;
                     background      : rgb(0,32,36);
-                    background      : linear-gradient(45deg, rgba(0,32,36,1) 0%, rgba(167,44,134,1) 48%, rgba(0,212,255,1) 100%);    
+                    background      : linear-gradient(45deg, rgba(0,32,36,1) 0%, rgba(167,44,134,1) 48%, rgba(0,212,255,1) 100%);
+                }
+                &.error {
+                    opacity: 0.9;
+                    background: $CErr;
+                }
+                &.warning {
+                    opacity: 0.9;
+                    background: $CWarn;
+                }
+                &.info {
+                    opacity: 0.9;
+                    background: $CInfo;
+                }
+                &.success {
+                    opacity: 0.9;
+                    background: $CSucc;
                 }
             }
 
