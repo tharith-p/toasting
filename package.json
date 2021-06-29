@@ -1,5 +1,6 @@
 {  
   "scripts": {
-    "build": "terser src/js/index.js -o dist/js/toasting.js && sass --update --style=compressed --no-source-map src/scss/style.scss:src/css/style.css"
+    "build": "sass --update --style=compressed --no-source-map src/scss/style.scss:src/css/style.css",
+    "build-dist": "terser src/js/index.js -o dist/js/toasting.js && sass --update --style=compressed --no-source-map src/scss/style.scss:dist/css/toasting.css"
   }
 }
