@@ -43,6 +43,8 @@
         // @Override
         // Replace create method when DOM has finished loading
         toasting.create = function (options) {
+
+            var isShowing = true;
             var timeout = 4000;
 
             if (options.timeout) {
@@ -113,7 +115,6 @@
                 progressBar.style.animationTimingFunction = 'linear';
                 progressBar.style.animationFillMode = 'forwards';
 
-
                 if (typeof options.progressBarType !== 'undefined') {
                     progressBar.classList += ' ' + options.progressBarType;                    
                 }
@@ -129,8 +130,8 @@
             // toasting api
             toasting.hide = function () {
                 toasting.className += ' tg-fadeOut';
+                isShowing = false;
                 toasting.addEventListener('animationend', removeToast, false);
-
             };
             if (typeof options.autoHide === 'undefined') {
                 setTimeout(toasting.hide, timeout + 200);
@@ -163,4 +164,3 @@
     }
     return toasting;
 });
-
