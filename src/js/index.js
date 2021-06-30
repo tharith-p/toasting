@@ -83,6 +83,7 @@
 
             // icon
             if (options.icon) {
+                wrapper.classList += ' img';
                 var img = document.createElement('img');
                 img.src = options.icon;
                 img.className = 'tg-icon';

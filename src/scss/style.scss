@@ -6,6 +6,9 @@ $CErr   :#DB2B1D;
 $CInfo  : #27ABDB;
 $CSucc  : #51C625;
 $CWarn  : #DB9215;
+$paddingY   : 15px;
+$paddingX   : 15px;
+$iconW      : 30px;
 
  
 #tg-container {
@@ -61,12 +64,15 @@ $CWarn  : #DB9215;
             min-width       : 200px;
             max-width       : 400px;
             margin          : 5px 20px;
-            padding         : 10px 15px;
+            padding         : $paddingY $paddingX;
             border-radius   : 8px;
             box-shadow      : 0 1px 6px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.19);
             position        : relative;
             cursor          : pointer;
             overflow-y      : hidden;
+            &.img {
+                padding: $paddingY $paddingX $paddingY ($paddingX * 2 + $iconW);
+            }
 
             // type
             &.tg-success {
@@ -142,13 +148,11 @@ $CWarn  : #DB9215;
                 color       : #616161;
             }
             .tg-icon {
-                top             : 5px;
-                left            : -40px;
-                width           : 50px;
-                height          : 50px;
-                border-radius   : 100%;
+                top             : 50%;
+                left            : $paddingX;
+                width           : $iconW;
                 position        : absolute;
-                background      : #FFF;
+                transform: translateY(-50%);
             }
         }
     }
