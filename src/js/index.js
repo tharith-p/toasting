@@ -44,8 +44,10 @@
         // Replace create method when DOM has finished loading
         toasting.create = function (options) {
 
-            var isShowing = true;
             var timeout = 4000;
+            let 
+                onHide = new Event('onHide'),
+                onHidden = new Event('onHidden');
 
             if (options.timeout) {
                 timeout = options.timeout;
@@ -127,11 +129,13 @@
                 toasting.addEventListener('click', options.callback);
             }
 
+            toasting.isShowing = true;
             // toasting api
             toasting.hide = function () {
+                toasting.dispatchEvent(onHide);
                 toasting.className += ' tg-fadeOut';
-                isShowing = false;
                 toasting.addEventListener('animationend', removeToast, false);
+                return null;
             };
             if (typeof options.autoHide === 'undefined') {
                 setTimeout(toasting.hide, timeout + 200);
@@ -154,7 +158,9 @@
                 if (style) {
                     style.remove();
                 }
-            }
+                toasting.dispatchEvent(onHidden);
+                toasting.isShowing = false;
+            }            
 
             toasting.appendChild(wrapper);
 
