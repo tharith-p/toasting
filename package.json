@@ -1,7 +1,1 @@
-{  
-  "scripts": {
-    "build": "sass --update --no-source-map src/scss/style.scss:src/css/style.css",
-    "build-dist": "terser src/js/index.js -o dist/js/toasting.js && sass --update --style=compressed --no-source-map src/scss/style.scss:dist/css/toasting.css"
-  }
-}
-
+{"scripts":{"build":"sass --update --no-source-map src/scss/style.scss:src/css/style.css","build-dist":"terser src/js/index.js -o dist/js/toasting.js && sass --update --style=compressed --no-source-map src/scss/style.scss:dist/css/toasting.css"},"devDependencies":{"tailwindcss":"^3.1.4"}}

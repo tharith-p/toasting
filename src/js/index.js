@@ -35,7 +35,7 @@
 
     // Initialize library
     function init() {
-        // toasting container
+        // append toasting container
         var container = document.createElement('div');
         container.id = 'tg-container';
         document.body.appendChild(container);
