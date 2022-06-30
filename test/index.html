@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="/dist/css/toasting.css">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/tharith-p/portfolios-v1/main/public/ico.svg" type="image/svg">
+  <link rel="stylesheet" href="/src/css/toasting.css">
   <link rel="stylesheet" href="/test/lib/tailwindcss/tailwindcss.css">
 </head>
 
@@ -44,6 +45,13 @@
           <input type="radio" id="info" name="type" value="info">
           <label class="pl-2" for="info">Info</label>
         </div>
+      </div>
+    </div>
+    <div>
+      <span class="text-gray-500">Hover on toast to delay timeout and pause progress bar animation</span>
+      <div>
+        <input type="checkbox" id="isHoverToPause" name="isHoverToPause" checked>
+        <label class="pl-2" for="isHoverToPause">Hover to pause</label> <span>(true by default)</span>
       </div>
     </div>
     <div>
@@ -95,12 +103,12 @@
       <input type="number" placeholder="DURATION" id="duration" class="block w-full border px-4 py-1 rounded">
     </div>
     <button
-      class="border px-5 py-1 text-white rounded bg-gradient-to-r from-green-400 to-blue-500 transition hover:from-pink-500 hover:to-yellow-500"
+      class="border px-5 py-1 transition-all duration-1000 text-white rounded bg-green-400 hover:bg-pink-500 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
       id="btn">
       TOASTING TIME
     </button>
   </div>
-  <script src="/dist/js/toasting.js"></script>
+  <script src="/src/js/toasting.js"></script>
   <script src="/test/js/index.js"></script>
 </body>
 

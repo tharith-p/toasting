@@ -4,9 +4,10 @@ let
     type            = 'default',
     progressBarType = 'rainbow',
     autoHide        = false,
+    isHoverToPause  = true,
     hideProgressBar = false,
     duration        = 0;
-    object          = {}
+    object          = {};
 
 let toast;
 function show() {
@@ -19,6 +20,7 @@ let inputEvt = () => {
     type            = document.querySelector('input[name="type"]:checked').value;
     progressBarType = document.querySelector('input[name="pType"]:checked').value;
     autoHide        = document.querySelector('#autoHide').checked;
+    isHoverToPause  = document.querySelector('#isHoverToPause').checked;
     hideProgressBar = document.querySelector('#hideProgressBar').checked;
     duration        = parseInt(document.querySelector('#duration').value);
 
@@ -36,8 +38,12 @@ let inputEvt = () => {
         object['type'] = type;
     }
 
+    if (!isHoverToPause) {
+        object['isHoverToPause'] = false;
+    }
+
     if (!autoHide) {
-        object['autoHide'] = false
+        object['autoHide'] = false;
     }
 
     if (hideProgressBar) {
