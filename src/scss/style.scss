@@ -2,15 +2,16 @@
  * toasting v0.1 | MIT License | https://github.com/tharith-p/toasting 
  */
 
-$CErr   :#DB2B1D;
-$CInfo  : #27ABDB;
-$CSucc  : #51C625;
-$CWarn  : #DB9215;
+// Colors
+$CErr   :#DB2B1D;       // Error
+$CInfo  : #27ABDB;      // Info
+$CSucc  : #51C625;      // Success
+$CWarn  : #DB9215;      // Warning
+$iconW      : 30px;     // Icon width
 $paddingY   : 15px;
 $paddingX   : 15px;
-$iconW      : 30px;
 
- 
+
 #tg-container {
     * {
         margin  : 0;
@@ -39,7 +40,6 @@ $iconW      : 30px;
         'Apple Color Emoji',
         'Segoe UI Emoji';
 
-
     top             : 0;
     right           : 0;
     display         : flex;
@@ -54,7 +54,15 @@ $iconW      : 30px;
         overflow                    : auto;
         animation-duration          :  .3s;
         animation-name              : toasting;
-        animation-timing-function   : cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function   : cubic-bezier(0.215, 0.61, 0.355, 1);
+
+        /*
+            Hover to pause progress bar
+        */
+        &.hover\:pause:hover .progress-bar {
+            animation-play-state: paused;
+        }
+
         a, a:hover {
             color               : #549EDB !important;
             text-decoration     : none !important;
@@ -160,14 +168,14 @@ $iconW      : 30px;
     .tg-fadeOut {
         animation-name              : toastingFadeOut;
         animation-duration          : .6s;
-        animation-timing-function   : cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function   : cubic-bezier(0.215, 0.61, 0.355, 1);
         animation-fill-mode         : forwards;
         overflow                    : hidden;
     }
 }
 @keyframes toasting {
     0% {
-        transform: translate3d(400px, 0, 0);;
+        transform: translate3d(400px, 0, 0);
         opacity: 0;
     }
     50% {
