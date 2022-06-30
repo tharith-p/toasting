@@ -1,6 +1,9 @@
 node_modules/
+
 src/css
 src/css/
 src/css/style.css
+
+test/lib/tailwindcss/tailwindcss.css
 
 package-lock.json
