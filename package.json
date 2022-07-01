@@ -1,4 +1,25 @@
 {
+    "name": "toasting",
+    "version": "1.0.0",
+    "description": "A Vanilla JS toast notification.",
+    "main": "./dist/js/toasting.js",
+    "directories": {
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tharith-p/toasting.git"
+    },
+    "keywords": ["toast", "toast-notifications"],
+    "author": {
+        "name": "Tharith PHON",
+        "email": "phorntharith090@gmail.com"
+    },
+    "license": "ISC",
+    "homepage": "https://github.com/tharith-p/toasting#readme",
+    "bugs": {
+        "url": "https://github.com/tharith-p/toasting/issues"
+    },
     "scripts": {
         "build": "sass --update --no-source-map src/scss/style.scss:src/css/toasting.css",
         "build-dist": "terser src/js/toasting.js -o dist/js/toasting.js && sass --update --style=compressed --no-source-map src/scss/style.scss:dist/css/toasting.css",
