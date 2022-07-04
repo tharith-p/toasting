@@ -138,10 +138,10 @@
                 let rules = document.createTextNode(`
                     @keyframes animate-${ autoincrement } {
                         0% {
-                            width: 100%
+                            clip-path: inset(0px 0% 0px 0px);
                         }
                         100% {
-                            width: 0%;
+                            clip-path: inset(0px 100% 0px 0px);
                         }
                     }
                 `);
