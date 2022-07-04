@@ -1,6 +1,6 @@
 # Toasting
 
-Toasting - is a javascript library for notifications. There is no dependencies need.
+Toasting - is a javascript library for notifications. There is no dependencies needed.
 
 ## Installing
 
@@ -23,7 +23,7 @@ Toasting - is a javascript library for notifications. There is no dependencies n
 ```
 
 ## Options
-There are the avilable config option for making toast. Only `title` is required. toast will default if config property is not specified.
+There are the avilable config option for making toast. Only `title` is required. toast will set to default if config property is not specified.
 
 ```javascript
 {
