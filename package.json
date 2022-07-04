@@ -10,7 +10,10 @@
         "type": "git",
         "url": "git+https://github.com/tharith-p/toasting.git"
     },
-    "keywords": ["toast", "toast-notifications"],
+    "keywords": [
+        "toast",
+        "toast-notifications"
+    ],
     "author": {
         "name": "Tharith PHON",
         "email": "phorntharith090@gmail.com"
@@ -21,7 +24,11 @@
         "url": "https://github.com/tharith-p/toasting/issues"
     },
     "scripts": {
-        "build": "sass --update --no-source-map src/scss/style.scss:src/css/toasting.css",
-        "build-dist": "terser src/js/toasting.js -o dist/js/toasting.js && sass --update --style=compressed --no-source-map src/scss/style.scss:dist/css/toasting.css"
+        "build": "node_modules/.bin/sass --update --no-source-map src/scss/style.scss:src/css/toasting.css",
+        "build-dist": "node_modules/.bin/terser src/js/toasting.js -o dist/js/toasting.js && node_modules/.bin/sass --update --style=compressed --no-source-map src/scss/style.scss:dist/css/toasting.css"
+    },
+    "devDependencies": {
+        "sass": "^1.53.0",
+        "terser": "^5.14.1"
     }
 }
