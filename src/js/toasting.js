@@ -61,10 +61,6 @@
         return prefix + seperater + name;
     };
 
-    // Setting
-    let autoincrement = 0;
-    let timer = undefined;
-
     // default
     let dfIsHoverToPause    = true;
     let dfTimeout           = 4000;
@@ -86,6 +82,11 @@
         // Replace create method when DOM has finished loading
         toasting.create = function (options) {
 
+            this.create.previousState = (this.create.previousState ?? 0) + 1;
+            
+            // Setting
+            let timer = undefined;
+
             let 
                 isHoverToPause  = options.isHoverToPause !== undefined ? options.isHoverToPause : dfIsHoverToPause,
                 timeout         = options.timeout !== undefined ? options.timeout : dfTimeout,
@@ -100,7 +101,7 @@
 
             let toasting = document.createElement('div');
 
-            toasting.id = `toast-${ ++autoincrement }`;
+            toasting.id = `toast-${ this.create.previousState }`;
             toasting.classList.add(getClassName('toast'));
             isHoverToPause && (toasting.classList.add('hover:pause'));
 
@@ -136,7 +137,7 @@
 
                 cssAnimation.id = `style-${toasting.id}`;
                 let rules = document.createTextNode(`
-                    @keyframes animate-${ autoincrement } {
+                    @keyframes animate-${ this.create.previousState } {
                         0% {
                             clip-path: inset(0px 0% 0px 0px);
                         }
@@ -151,7 +152,7 @@
                 let progressBar = document.createElement('div');
 
                 progressBar.classList.add('progress-bar');
-                progressBar.style.animationName             = `animate-${ autoincrement }`;
+                progressBar.style.animationName             = `animate-${ this.create.previousState }`;
                 progressBar.style.animationDuration         = `${ timeout / 1000 }s`;
                 progressBar.style.animationTimingFunction   = 'linear';
                 progressBar.style.animationFillMode         = 'forwards';
