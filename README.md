@@ -1,10 +1,10 @@
 # Toasting
-
 Toasting - is a javascript library for notifications. There is no dependencies needed.
+
+## I created this just to test my coding skill and not well testd on production. If you use it on production you use it at your own risk.
 
 ## Installing
 
-### There is no npm or cdn is available yet. by now the only way is download code from folder dist.
 
 1. Link toasting.css
 ```html
@@ -19,15 +19,17 @@ Toasting - is a javascript library for notifications. There is no dependencies n
 3. After DOM is loaded, the toasting is available as global variable
 ```js
     // Displing the default toast with default config.
-    var toast = toasting.create(options);
+    toasting.create();
+    // or with custom config
+    toasting.create([options]);
 ```
 
 ## Options
-There are the avilable config option for making toast. Only `title` is required. toast will set to default if config property is not specified.
-
+These are the avilable config option for making toast.
+Remember these all are optional.
 ```javascript
 {
-    // `title` is to set as title. This property is required or it will set to default one 'Default Title'.
+    // `title` is to set as title. Default value is 'Default Title'.
     title: "this is title",
 
     // `text` is subtitle.
@@ -35,23 +37,22 @@ There are the avilable config option for making toast. Only `title` is required.
     
     // `type` is the toast type, there are 5 type that is available for now:
     // default if this key is not specified, 'success', 'warning', 'error' and 'info'.
-    // By specified type, will set the background of toast.
+    // By specified type, it will set the background of toast.
     // You can modify color in src/scss/style/scss file.
-    type: "info",
+    type: ["info"|"success"|"warning"|"error"|"info"],
 
     // Enable toast to hover to pause. this key is true by default.
-    isHoverToPause: true,
+    isHoverToPause: [true|false],
 
     // tell toast to hide itself after timeout. this key is true by default.
-    autoHide: true,
+    autoHide: [true|false],
     
     // Tell if you need to hide progress bar. this key is false by default.
-    hideProgressBar: false,
+    hideProgressBar: [false|true],
 
-    // set the type of the progress bar. there are 5 type are available by now:
+    // set the type of the progress bar. there are 6 type are available by now:
     // default if this key is not specified, 'success', 'warning', 'error', 'info' and 'rainbow'.
-
-    progressBarType: "rainbow",
+    progressBarType: ["rainbow"|"success"|"warning"|"error"|"info"],
 
     // set the timeout in milisecond for toast to hide itself. this key is 4000ms by default.
     timeout: 4000
